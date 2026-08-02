@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women In Tech Hub | @shiv4ngi.decodes</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="A curated directory of career communities, mentorship, job fairs, and founder networks empowering women in technology. Curated by @shiv4ngi.decodes." />
+  <meta property="og:title" content="Women In Tech Resource Hub | shiv4ngi.decodes" />
+  <meta property="og:description" content="Unlock mentorship, funding, and career opportunities in tech." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card-bg: rgba(22, 30, 46, 0.75);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(139, 92, 246, 0.4);
+      --primary: #8b5cf6;
+      --primary-light: #a78bfa;
+      --accent: #ec4899;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem 1.25rem;
+    }
+
+    /* Badge Header */
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .ig-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .ig-badge:hover {
+      background: rgba(139, 92, 246, 0.25);
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .ig-badge svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary-light);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Section Title */
+    .section-header {
+      margin: 3.5rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    /* Resource Cards Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px -10px rgba(139, 92, 246, 0.2);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-tag {
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--primary-light);
+      margin-bottom: 0.85rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .card-highlights {
+      list-style: none;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-highlights li {
+      font-size: 0.825rem;
+      color: #d1d5db;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-highlights li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Action Footer in Card */
+    .card-action {
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.65rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      gap: 0.5rem;
+    }
+
+    .btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* Tips / Creator Note Section */
+    .creator-box {
+      margin-top: 3.5rem;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.05));
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .creator-box h3 {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .creator-box p {
+      color: #d1d5db;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .share-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+
+    .share-btn {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .share-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Instagram Handle Badge -->
+    <div class="badge-container">
+      <a href="https://instagram.com/shiv4ngi.decodes" target="_blank" rel="noopener noreferrer" class="ig-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @shiv4ngi.decodes
+      </a>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="hero">
+      <h1>Women In Tech Directory</h1>
+      <p>A curated resource hub of top communities, mentorship programs, job platforms, and founder funds built to accelerate women in engineering and tech.</p>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Communities</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1:1</div>
+          <div class="stat-label">Mentorship</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Actionable</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content Directory -->
+    <div class="section-header">
+      <div class="dot"></div>
+      <h2>Featured Communities & Platforms</h2>
+    </div>
+
+    <div class="grid">
+
+      <!-- Card 1: Aspire For Her -->
+      <div class="card">
+        <div>
+          <span class="card-tag">Career & Mentorship</span>
+          <h3>Aspire For Her</h3>
+          <p>India’s largest career community dedicated to young women entering professional careers, offering structured pathways and corporate access.</p>
+          <ul class="card-highlights">
+            <li>1:1 Mentorship from industry leaders</li>
+            <li>Skill-building cohorts & workshops</li>
+            <li>Early-career job & internship access</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <a href="https://www.aspireforher.org" target="_blank" rel="noopener noreferrer" class="btn">Explore Aspire For Her ↗</a>
+        </div>
+      </div>
+
+      <!-- Card 2: WomenTech Network -->
+      <div class="card">
+        <div>
+          <span class="card-tag">Global Events & Jobs</span>
+          <h3>WomenTech Network</h3>
+          <p>A global network connecting 100,000+ women in tech through international conferences, leadership summits, and top hiring partners.</p>
+          <ul class="card-highlights">
+            <li>Global tech conferences & summits</li>
+            <li>Direct engineering hiring fairs</li>
+            <li>Peer networking & leadership tracks</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <a href="https://www.womentech.net" target="_blank" rel="noopener noreferrer" class="btn">Join WomenTech Network ↗</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Women in Cloud -->
+      <div class="card">
+        <div>
+          <span class="card-tag">Cloud & AI Leadership</span>
+          <h3>Women in Cloud</h3>
+          <p>A community designed to accelerate women entrepreneurs and leaders scaling solutions in Cloud Computing, SaaS, and AI.</p>
+          <ul class="card-highlights">
+            <li>Enterprise cloud & tech credits</li>
+            <li>Founder accelerator programs</li>
+            <li>Executive networking & policy focus</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <a href="https://womenincloud.com" target="_blank" rel="noopener noreferrer" class="btn">Explore Women in Cloud ↗</a>
+        </div>
+      </div>
+
+      <!-- Card 4: WomenHack -->
+      <div class="card">
+        <div>
+          <span class="card-tag">Recruitment & Fairs</span>
+          <h3>WomenHack</h3>
+          <p>Specialized tech recruitment platform connecting female developers, designers, and tech leaders directly with inclusive companies.</p>
+          <ul class="card-highlights">
+            <li>Speed-interviewing recruitment events</li>
+            <li>Direct connection to engineering managers</li>
+            <li>Verified inclusive employer directory</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <a href="https://womenhack.com" target="_blank" rel="noopener noreferrer" class="btn">Check WomenHack Fairs ↗</a>
+        </div>
+      </div>
+
+      <!-- Card 5: FoundHer World -->
+      <div class="card">
+        <div>
+          <span class="card-tag">Founders & Capital</span>
+          <h3>FoundHer World</h3>
+          <p>An ecosystem built for female tech founders seeking direct venture capital access, angel investor networks, and pitch preparation.</p>
+          <ul class="card-highlights">
+            <li>Investor speed-dating & pitch sessions</li>
+            <li>Direct funding and grant pipelines</li>
+            <li>Peer founder support network</li>
+          </ul>
+        </div>
+        <div class="card-action">
+          <a href="https://foundherworld.com" target="_blank" rel="noopener noreferrer" class="btn">Access FoundHer World ↗</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Creator Note & Share CTA -->
+    <div class="creator-box">
+      <h3>💡 How to make the most of these:</h3>
+      <p>Don't just join passively! Pick 1 or 2 communities that match your immediate goal (getting a job, finding a mentor, or pitching for capital). Show up in their Slack or Discord, introduce yourself, and reach out for 1:1 mentorship.</p>
+      
+      <div class="share-bar">
+        <button class="share-btn" onclick="copyPageLink()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span id="copyText">Copy Page Link</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Curated with ❤️ by <a href="https://instagram.com/shiv4ngi.decodes" target="_blank" rel="noopener noreferrer">@shiv4ngi.decodes</a></p>
+      <p style="margin-top: 0.5rem; font-size: 0.75rem; color: #6b7280;">Share this with a friend or colleague who needs to see this!</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function copyPageLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const copyText = document.getElementById('copyText');
+        copyText.innerText = 'Copied to Clipboard!';
+        setTimeout(() => {
+          copyText.innerText = 'Copy Page Link';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
